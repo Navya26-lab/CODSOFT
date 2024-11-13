@@ -1,0 +1,172 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Alarm Clock App</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <div class="container">
+        <h1>Alarm Clock</h1>
+        <div class="clock">
+            <p id="current-time">--:--:--</p>
+        </div>
+        <div class="set-alarm">
+            <label for="alarm-time">Set Alarm:</label>
+            <input type="time" id="alarm-time">
+            <button onclick="setAlarm()">Set Alarm</button>
+        </div>
+        <div class="alarm-list">
+            <h3>Active Alarms</h3>
+            <ul id="alarms"></ul>
+        </div>
+    </div>
+
+    <!-- JavaScript -->
+    <script src="script.js"></script>
+</body>
+</html>
+body {
+    font-family: Arial, sans-serif;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    background-color: #f0f4f8;
+    margin: 0;
+}
+
+.container {
+    text-align: center;
+    background: #ffffff;
+    padding: 20px;
+    box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
+    border-radius: 8px;
+}
+
+h1 {
+    font-size: 2em;
+    margin-bottom: 20px;
+    color: #333;
+}
+
+.clock {
+    font-size: 1.5em;
+    margin-bottom: 20px;
+    color: #555;
+}
+
+.set-alarm {
+    margin-top: 20px;
+}
+
+#set-alarm label {
+    margin-right: 10px;
+}
+
+#set-alarm input {
+    font-size: 1em;
+    padding: 5px;
+}
+
+button {
+    padding: 8px 15px;
+    margin-left: 10px;
+    font-size: 1em;
+    cursor: pointer;
+    border: none;
+    background-color: #28a745;
+    color: white;
+    border-radius: 5px;
+    transition: 0.3s;
+}
+
+button:hover {
+    background-color: #218838;
+}
+
+.alarm-list {
+    margin-top: 20px;
+}
+
+.alarm-list ul {
+    list-style-type: none;
+    padding: 0;
+}
+
+.alarm-list ul li {
+    padding: 8px;
+    background-color: #e9ecef;
+    margin-top: 5px;
+    border-radius: 5px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+let alarms = []; // Store active alarms
+
+// Update the current time display every second
+function updateTime() {
+    const currentTime = new Date();
+    document.getElementById('current-time').textContent = currentTime.toLocaleTimeString('en-US', { hour12: false });
+    checkAlarms(currentTime);
+}
+setInterval(updateTime, 1000); // Update time every second
+
+// Set a new alarm
+function setAlarm() {
+    const alarmTimeInput = document.getElementById('alarm-time').value;
+    if (alarmTimeInput) {
+        alarms.push(alarmTimeInput);
+        displayAlarms();
+        alert(`Alarm set for ${alarmTimeInput}`);
+    } else {
+        alert("Please select a valid time for the alarm.");
+    }
+}
+
+// Display all active alarms
+function displayAlarms() {
+    const alarmsList = document.getElementById('alarms');
+    alarmsList.innerHTML = '';
+    alarms.forEach((alarm, index) => {
+        const listItem = document.createElement('li');
+        listItem.textContent = `Alarm set for ${alarm}`;
+        
+        // Add delete button for each alarm
+        const deleteButton = document.createElement('button');
+        deleteButton.textContent = 'Delete';
+        deleteButton.className = 'delete-button';
+        deleteButton.onclick = () => deleteAlarm(index);
+        
+        listItem.appendChild(deleteButton);
+        alarmsList.appendChild(listItem);
+    });
+}
+
+// Check if any alarms match the current time
+function checkAlarms(currentTime) {
+    const currentTimeString = currentTime.toLocaleTimeString('en-US', { hour12: false, hour: '2-digit', minute: '2-digit' });
+    alarms.forEach((alarm, index) => {
+        if (alarm === currentTimeString) {
+            ringAlarm(alarm, index);
+        }
+    });
+}
+
+// Ring the alarm
+function ringAlarm(alarm, index) {
+    alert(`Alarm ringing for ${alarm}`);
+    // Optional: Play sound here if a sound file is available
+    // Uncomment and add path to sound file if you want audio alert:
+    // new Audio('alarm_sound.mp3').play();
+
+    deleteAlarm(index); // Remove alarm after it rings
+}
+
+// Delete an alarm
+function deleteAlarm(index) {
+    alarms.splice(index, 1);
+    displayAlarms();
+}
