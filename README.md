@@ -1,55 +1,92 @@
+
 # 💻 CODSOFT Internship Projects
 
-### 🌟 Web Development Internship – Task Collection
+### 🌟 Web Development Internship | Project Collection
 
-This repository contains the projects and tasks completed as part of my CODSOFT Web Development Internship.
+Welcome to my CODSOFT Web Development Internship repository! 🚀
 
-## ✨ Projects & Tasks
+This repository showcases the projects I developed as part of my internship, demonstrating my practical knowledge of frontend development using HTML, CSS, and JavaScript.
 
-- ⏰ **Alarm App** – Alarm application built using HTML, CSS and JavaScript.
-- 🌐 **HTML Tasks** – HTML-based practice tasks.
-- 🎨 **CSS Tasks** – Styling and layout practice.
-- ⚡ **JavaScript Tasks** – JavaScript-based programming tasks.
+---
+
+## ✨ Projects
+
+### ⏰ 1. Alarm Clock
+A simple and interactive alarm clock application that displays the current time and allows users to set alarms.
+
+### 🧠 2. Quiz App
+An interactive quiz application featuring multiple-choice questions, answer selection, score calculation, and result display.
+
+### 📝 3. To-Do List
+A task management application that allows users to add, edit, delete, and complete tasks, with data saved using Local Storage.
+
+---
 
 ## 🛠️ Technologies Used
 
-- HTML5
-- CSS3
-- JavaScript
+<p>
+  <img src="https://img.shields.io/badge/HTML5-E34F26?style=for-the-badge&logo=html5&logoColor=white" />
+  <img src="https://img.shields.io/badge/CSS3-1572B6?style=for-the-badge&logo=css3&logoColor=white" />
+  <img src="https://img.shields.io/badge/JavaScript-F7DF1E?style=for-the-badge&logo=javascript&logoColor=black" />
+</p>
+
+---
 
 ## 📂 Repository Structure
 
 ```text
 CODSOFT/
 │
-├── Alarm app html css javascript/
-├── css/
-├── css task1/
-├── html/
-├── html task1/
-├── javascript/
-└── javascript task1/
+├── Alarm-Clock/
+│   ├── index.html
+│   ├── styles.css
+│   └── script.js
+│
+├── Quiz-App/
+│   ├── index.html
+│   ├── styles.css
+│   └── script.js
+│
+├── To-Do-List/
+│   ├── index.html
+│   ├── styles.css
+│   └── script.js
+│
+└── README.md
 ```
+
+---
 
 ## 🚀 Getting Started
 
-1. Clone the repository:
+1. Clone this repository:
 
-```bash
-git clone https://github.com/Navya26-lab/CODSOFT.git
-```
+   ```bash
+   git clone https://github.com/Navya26-lab/CODSOFT.git
+   ```
 
-2. Open the project folder.
-3. Run the HTML files in your browser.
+2. Open the downloaded project folder.
+3. Navigate to any project folder.
+4. Open `index.html` in your browser.
 
-## 🎯 Internship
+---
 
-**Organization:** CODSOFT
+## 🎯 Internship Details
 
-**Domain:** Web Development
+- **Organization:** CODSOFT
+- **Domain:** Web Development
+- **Technologies:** HTML5, CSS3, JavaScript
 
-**Technologies:** HTML, CSS & JavaScript
+---
 
-## 👩‍💻 Developed by Navya Sri
+## 👩‍💻 Developed By
 
-⭐ Thanks for visiting my repository!
+**Navya Sri Satheesh**
+
+🔗 [GitHub Profile](https://github.com/Navya26-lab)
+
+---
+
+⭐ If you find this repository interesting, don't forget to give it a star!
+
+✨ Thank you for visiting my repository!
